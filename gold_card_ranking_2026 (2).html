@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>目的別ゴールドカードランキング 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+JP:wght@400;500;700;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold:       #C9A84C;
+  --gold-light: #F0D080;
+  --gold-pale:  #FDF3D0;
+  --gold-dark:  #8B6914;
+  --platinum:   #B8BCC8;
+  --bronze:     #A0522D;
+  --ink:        #1A1410;
+  --ink-soft:   #2C241C;
+  --cream:      #FAF7F0;
+  --cream-dark: #F0EAD8;
+  --warm-gray:  #7A7060;
+  --card-bg:    #FFFDF8;
+  --shadow:     rgba(140,100,30,0.15);
+
+  /* category colors */
+  --hotel:  #1A5276;
+  --mile:   #145A32;
+  --cost:   #7D3C98;
+  --ins:    #922B21;
+  --daily:  #D35400;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+
+/* ─── HERO ─── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center;
+  padding: 80px 24px 60px;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.hero-pattern {
+  position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg,
+      rgba(201,168,76,0.04) 0px, rgba(201,168,76,0.04) 1px,
+      transparent 1px, transparent 40px),
+    repeating-linear-gradient(-45deg,
+      rgba(201,168,76,0.04) 0px, rgba(201,168,76,0.04) 1px,
+      transparent 1px, transparent 40px);
+}
+
+.hero-glow {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 40%,
+    rgba(201,168,76,0.20) 0%, transparent 70%);
+}
+
+.hero-year {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  position: relative; z-index: 2;
+  animation: riseUp 0.8s ease both;
+}
+
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  line-height: 1.1;
+  color: var(--cream);
+  position: relative; z-index: 2;
+  animation: riseUp 0.9s ease 0.1s both;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+
+.hero-sub {
+  margin-top: 20px;
+  font-size: 0.95rem;
+  color: var(--platinum);
+  max-width: 540px;
+  position: relative; z-index: 2;
+  animation: riseUp 1s ease 0.2s both;
+  line-height: 1.8;
+}
+
+.hero-divider {
+  width: 80px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 28px auto;
+  position: relative; z-index: 2;
+  animation: riseUp 1s ease 0.3s both;
+}
+
+.hero-cats {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+  position: relative; z-index: 2;
+  animation: riseUp 1s ease 0.4s both;
+}
+
+.cat-chip {
+  padding: 7px 18px;
+  border: 1px solid rgba(201,168,76,0.4);
+  border-radius: 100px;
+  font-size: 0.78rem;
+  color: var(--gold-light);
+  letter-spacing: 0.05em;
+}
+
+/* ─── NAV ─── */
+.sticky-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(26,20,16,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+  padding: 0 24px;
+  overflow-x: auto;
+}
+
+.sticky-nav ul {
+  display: flex; gap: 0; list-style: none;
+  min-width: max-content;
+}
+
+.sticky-nav a {
+  display: block;
+  padding: 14px 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--platinum);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+
+.sticky-nav a:hover { color: var(--gold-light); border-color: var(--gold); }
+
+/* ─── LAYOUT ─── */
+.container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+section { padding: 80px 0; }
+
+.section-eyebrow {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 16px;
+}
+
+.section-eyebrow .cat-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.section-eyebrow .cat-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+
+.section-desc {
+  font-size: 0.9rem;
+  color: var(--warm-gray);
+  margin-bottom: 40px;
+  max-width: 580px;
+}
+
+/* ─── CARD COMPONENT ─── */
+.card-entry {
+  background: var(--card-bg);
+  border: 1px solid var(--cream-dark);
+  border-radius: 20px;
+  margin-bottom: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card-entry:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px var(--shadow);
+}
+
+.card-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 20px;
+  padding: 28px 32px 20px;
+  border-bottom: 1px solid var(--cream-dark);
+}
+
+.rank-badge {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.rank-1 .rank-badge { background: linear-gradient(135deg,#FFD700,#C8860A); }
+.rank-2 .rank-badge { background: linear-gradient(135deg,#D8D8E0,#9090A0); }
+.rank-3 .rank-badge { background: linear-gradient(135deg,#CD7F32,#8B4513); }
+
+.rank-num-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+}
+
+.card-name-block h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.card-fee {
+  font-size: 0.8rem;
+  color: var(--warm-gray);
+  font-weight: 500;
+}
+
+.card-fee strong { color: var(--ink); }
+
+/* BEST FEATURE CALLOUT */
+.best-feature {
+  border-left: 4px solid var(--gold);
+  padding: 12px 20px;
+  margin: 0 32px 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+  background: linear-gradient(90deg, rgba(240,208,128,0.15), transparent);
+  display: flex; align-items: center; gap: 10px;
+  border-radius: 0 8px 8px 0;
+}
+
+.best-feature .bf-label {
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  background: rgba(201,168,76,0.15);
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.card-body { padding: 24px 32px 28px; }
+
+.card-body p {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+/* SPECS GRID */
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
+  gap: 10px;
+  margin: 16px 0 20px;
+}
+
+.spec-item {
+  background: var(--cream);
+  border: 1px solid var(--cream-dark);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.spec-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--warm-gray);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.spec-value {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* PROS */
+.pros-list {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 6px;
+  margin: 12px 0;
+}
+
+.pros-list li {
+  font-size: 0.85rem;
+  padding-left: 20px;
+  position: relative;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.pros-list li::before {
+  content: '◆';
+  position: absolute; left: 0;
+  font-size: 0.5rem;
+  top: 6px;
+  color: var(--gold);
+}
+
+/* WHO */
+.who-box {
+  display: flex; align-items: flex-start; gap: 12px;
+  background: var(--cream-dark);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-top: 16px;
+  font-size: 0.83rem;
+  line-height: 1.65;
+}
+
+.who-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
+
+/* WARNING */
+.caution-box {
+  display: flex; align-items: flex-start; gap: 10px;
+  border: 1px solid #F0C060;
+  background: #FFFBEC;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-top: 12px;
+  font-size: 0.82rem;
+  color: #7A5C00;
+  line-height: 1.65;
+}
+
+/* ─── SECTION DIVIDER ─── */
+.ornament {
+  display: flex; align-items: center; gap: 16px;
+  margin: 0;
+}
+
+.ornament-line {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), rgba(201,168,76,0.3), transparent);
+}
+
+.ornament-diamond {
+  width: 8px; height: 8px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+/* ─── CATEGORY SECTIONS ─── */
+.section-hotel { --cat: var(--hotel); }
+.section-mile  { --cat: var(--mile);  }
+.section-cost  { --cat: var(--cost);  }
+.section-ins   { --cat: var(--ins);   }
+.section-daily { --cat: var(--daily); }
+.section-total { --cat: var(--gold-dark); }
+
+.section-hotel .cat-icon { background: rgba(26,82,118,0.1); color: var(--hotel); }
+.section-mile  .cat-icon { background: rgba(20,90,50,0.1);  color: var(--mile); }
+.section-cost  .cat-icon { background: rgba(125,60,152,0.1); color: var(--cost); }
+.section-ins   .cat-icon { background: rgba(146,43,33,0.1);  color: var(--ins); }
+.section-daily .cat-icon { background: rgba(211,84,0,0.1);   color: var(--daily); }
+.section-total .cat-icon { background: rgba(139,105,20,0.12); color: var(--gold-dark); }
+
+.section-hotel .cat-label { color: var(--hotel); }
+.section-mile  .cat-label { color: var(--mile); }
+.section-cost  .cat-label { color: var(--cost); }
+.section-ins   .cat-label { color: var(--ins); }
+.section-daily .cat-label { color: var(--daily); }
+.section-total .cat-label { color: var(--gold-dark); }
+
+/* Best feature border colors by category */
+.section-hotel .best-feature { border-color: var(--hotel); color: var(--hotel); }
+.section-mile  .best-feature { border-color: var(--mile);  color: var(--mile); }
+.section-cost  .best-feature { border-color: var(--cost);  color: var(--cost); }
+.section-ins   .best-feature { border-color: var(--ins);   color: var(--ins); }
+.section-daily .best-feature { border-color: var(--daily); color: var(--daily); }
+.section-total .best-feature { border-color: var(--gold-dark); color: var(--gold-dark); }
+
+.section-hotel .best-feature { background: linear-gradient(90deg, rgba(26,82,118,0.08), transparent); }
+.section-mile  .best-feature { background: linear-gradient(90deg, rgba(20,90,50,0.08), transparent); }
+.section-cost  .best-feature { background: linear-gradient(90deg, rgba(125,60,152,0.08), transparent); }
+.section-ins   .best-feature { background: linear-gradient(90deg, rgba(146,43,33,0.08), transparent); }
+.section-daily .best-feature { background: linear-gradient(90deg, rgba(211,84,0,0.08), transparent); }
+.section-total .best-feature { background: linear-gradient(90deg, rgba(139,105,20,0.08), transparent); }
+
+.section-hotel .best-feature .bf-label { color: var(--hotel); background: rgba(26,82,118,0.12); }
+.section-mile  .best-feature .bf-label { color: var(--mile);  background: rgba(20,90,50,0.12); }
+.section-cost  .best-feature .bf-label { color: var(--cost);  background: rgba(125,60,152,0.12); }
+.section-ins   .best-feature .bf-label { color: var(--ins);   background: rgba(146,43,33,0.12); }
+.section-daily .best-feature .bf-label { color: var(--daily); background: rgba(211,84,0,0.12); }
+.section-total .best-feature .bf-label { color: var(--gold-dark); background: rgba(139,105,20,0.12); }
+
+/* ─── INSURANCE NOTE ─── */
+.ins-note {
+  background: var(--ink);
+  color: var(--cream);
+  border-radius: 16px;
+  padding: 28px 32px;
+  margin-top: 40px;
+}
+
+.ins-note h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.1rem;
+  color: var(--gold-light);
+  margin-bottom: 16px;
+}
+
+.ins-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.ins-type {
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.ins-type.auto  { background: rgba(74,222,128,0.12); border: 1px solid rgba(74,222,128,0.3); }
+.ins-type.usage { background: rgba(248,113,113,0.12); border: 1px solid rgba(248,113,113,0.3); }
+
+.ins-type .it-label {
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  margin-bottom: 8px;
+}
+.ins-type.auto  .it-label { color: #4ADE80; }
+.ins-type.usage .it-label { color: #F87171; }
+
+.ins-type p { font-size: 0.83rem; color: var(--platinum); line-height: 1.65; }
+
+/* ─── TOTAL TABLE ─── */
+.total-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin-top: 32px;
+}
+
+.total-table thead th {
+  background: var(--ink);
+  color: var(--gold-light);
+  font-weight: 700;
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.total-table thead th:first-child { border-radius: 12px 0 0 0; }
+.total-table thead th:last-child  { border-radius: 0 12px 0 0; }
+
+.total-table tbody tr {
+  border-bottom: 1px solid var(--cream-dark);
+  transition: background 0.2s;
+}
+
+.total-table tbody tr:hover { background: rgba(201,168,76,0.06); }
+.total-table tbody td { padding: 14px 16px; vertical-align: middle; }
+
+.total-table .rank-cell {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+}
+
+.rank-top-3 .rank-cell { color: var(--gold); }
+
+.eval-badge {
+  display: inline-block;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
+.ev-s { background: rgba(201,168,76,0.2); color: var(--gold-dark); border: 1px solid rgba(201,168,76,0.4); }
+.ev-a { background: rgba(74,142,174,0.15); color: #1A5276; border: 1px solid rgba(74,142,174,0.3); }
+.ev-b { background: rgba(125,60,152,0.1); color: var(--cost); border: 1px solid rgba(125,60,152,0.25); }
+.ev-c { background: rgba(120,120,120,0.1); color: #606060; border: 1px solid rgba(120,120,120,0.25); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--ink);
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.4rem;
+  color: var(--gold-light);
+  margin-bottom: 12px;
+}
+
+footer p {
+  font-size: 0.78rem;
+  color: var(--platinum);
+  line-height: 1.9;
+  opacity: 0.7;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes riseUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:640px) {
+  .card-header { grid-template-columns: auto 1fr; gap: 14px; padding: 20px; }
+  .card-header > :last-child { display: none; }
+  .card-body { padding: 20px; }
+  .best-feature { margin: 0 20px 0; }
+  .ins-row { grid-template-columns: 1fr; }
+  .total-table { font-size: 0.78rem; }
+  .total-table td, .total-table th { padding: 10px 10px; }
+  .specs-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-year">2026 Edition — Expert Analysis</div>
+  <h1>目的別<br><em>ゴールドカード</em><br>ランキング</h1>
+  <div class="hero-divider"></div>
+  <div style="display:inline-flex; align-items:center; gap:10px; background:rgba(201,168,76,0.12); border:1px solid rgba(201,168,76,0.4); border-radius:100px; padding:8px 22px; margin-bottom:20px; position:relative; z-index:2; animation:riseUp 1s ease 0.25s both;">
+    <span style="font-size:1.1rem;">✍️</span>
+    <span style="font-family:'Noto Sans JP',sans-serif; font-weight:900; font-size:0.92rem; color:var(--gold-light); letter-spacing:0.03em;">やっぴ〜＠MNP×クレカ錬金術師</span>
+  </div>
+  <p class="hero-sub">ホテル特典・マイル・コスパ・保険・日常使い。あなたの目的に合った最強の一枚を、専門家目線の辛口解説で徹底比較。</p>
+  <div class="hero-cats" style="margin-top:28px;">
+    <span class="cat-chip">🏨 ホテル特典</span>
+    <span class="cat-chip">✈️ マイル特化</span>
+    <span class="cat-chip">💰 コスパ重視</span>
+    <span class="cat-chip">🛡️ 付帯保険</span>
+    <span class="cat-chip">🛒 日常使い</span>
+    <span class="cat-chip">🎯 総合</span>
+  </div>
+</section>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav">
+  <ul>
+    <li><a href="#hotel">🏨 ホテル</a></li>
+    <li><a href="#mile">✈️ マイル</a></li>
+    <li><a href="#cost">💰 コスパ</a></li>
+    <li><a href="#insurance">🛡️ 保険</a></li>
+    <li><a href="#daily">🛒 日常</a></li>
+    <li><a href="#total">🎯 総合</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+
+<!-- ═══════════════════════════════════ -->
+<!-- HOTEL SECTION -->
+<!-- ═══════════════════════════════════ -->
+<section id="hotel" class="section-hotel">
+  <div class="section-eyebrow">
+    <div class="cat-icon">🏨</div>
+    <div>
+      <div class="cat-label">Category 01</div>
+    </div>
+  </div>
+  <h2 class="section-title">ホテル特典部門</h2>
+  <p class="section-desc">ホテルステータス・無料宿泊・朝食無料などホテル系の特典に特化したカード。旅行好きなら持って損なし。</p>
+
+  <!-- 1位 ヒルトンアメックス一般 -->
+  <div class="card-entry rank-1">
+    <div class="card-header">
+      <div class="rank-badge rank-1"><span class="rank-num-text">🥇</span></div>
+      <div class="card-name-block">
+        <h2>ヒルトン・オナーズ アメックス（一般）</h2>
+        <div class="card-fee">年会費 <strong>16,500円</strong>（税込）</div>
+      </div>
+      <div style="font-size:1.8rem;">⭐⭐⭐</div>
+    </div>
+    <div class="best-feature" style="margin:16px 32px 0;">
+      <span class="bf-label">最大の売り</span>
+      持つだけでヒルトン・ゴールドステータス＋朝食無料が即日確定！
+    </div>
+    <div class="card-body">
+      <p>
+        ホテル系カードとして<strong>コスパ最強</strong>と名高い一枚。年会費わずか16,500円で、世界7,000以上のヒルトン系列ホテルで使えるゴールドステータスが即付与されます。これが意味するのは「チェックイン時の朝食無料」。夫婦2人で泊まれば1泊あたり5,000〜15,000円の朝食代がタダになる計算で、年1〜2回旅行すれば年会費を軽々と回収できます。
+      </p>
+      <p>
+        さらに年間150万円の利用達成で、ヒルトン系列ホテルに<strong>無料1泊</strong>できる宿泊特典も付与。SPGやマリオット系ではハードルが高い「年会費以上の価値」を、この一枚が最も低コストで実現してくれます。
+      </p>
+      <div class="specs-grid">
+        <div class="spec-item"><div class="spec-label">年会費</div><div class="spec-value">16,500円</div></div>
+        <div class="spec-item"><div class="spec-label">ステータス</div><div class="spec-value">ゴールド（即付与）</div></div>
+        <div class="spec-item"><div class="spec-label">無料宿泊条件</div><div class="spec-value">年150万円利用</div></div>
+        <div class="spec-item"><div class="spec-label">朝食</div><div class="spec-value">無料（ゴールド特典）</div></div>
+      </div>
+      <ul class="pros-list">
+        <li>持つだけでゴールドステータス確定→朝食が無料になるのがとにかくデカい</li>
+        <li>年150万円（月12.5万円）達成で無料宿泊1泊プレゼント</li>
+        <li>ヒルトン・オナーズポイントが貯まりやすく、ポイント宿泊にも使える</li>
+        <li>ヒルトン系列はコンラッド・ウォルドーフ・ダブルツリーなど7,000施設以上</li>
+      </ul>
+      <div class="who-box">
+        <span class="who-icon">👤</span>
+        <div><strong>こんな人に最適：</strong>年1〜2回以上ヒルトン系に宿泊する人・出張族・旅行が好きな人。朝食代を浮かせるだけで年会費を回収できる最強コスパカード。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2位 マリオット -->
+  <div class="card-entry rank-2">
+    <div class="card-header">
+      <div class="rank-badge rank-2"><span class="rank-num-text">🥈</span></div>
+      <div class="card-name-block">
+        <h2>マリオットボンヴォイ アメックス プレミアム</h2>
+        <div class="card-fee">年会費 <strong>82,500円</strong>（税込）</div>
+      </div>
+      <div style="font-size:1.8rem;">⭐⭐</div>
+    </div>
+    <div class="best-feature" style="margin:16px 32px 0;">
+      <span class="bf-label">最大の売り</span>
+      40社以上の航空会社マイルに交換可能！ポイントの使い道が圧倒的に広い
+    </div>
+    <div class="card-body">
+      <p>
+        マリオット・ボンヴォイポイントは世界最大級のホテルポイントで、<strong>40社以上の航空会社マイルに交換できる</strong>のが最大の強み。ANAやJALはもちろん、ユナイテッド・デルタ・シンガポール航空など主要キャリア網羅。ホテルもマリオット・シェラトン・W・リッツカールトン・セントレジスなど超高級ブランドを含む9,000施設以上。
+      </p>
+      <p>
+        ただし年会費82,500円と高額。さらに<strong>年400万円の決済</strong>が無料宿泊2泊特典の達成条件であり、ハードルは高い。真価を発揮するのは月33万円以上カードを使いこなせるヘビーユーザーのみ。
+      </p>
+      <div class="specs-grid">
+        <div class="spec-item"><div class="spec-label">年会費</div><div class="spec-value">82,500円</div></div>
+        <div class="spec-item"><div class="spec-label">ステータス</div><div class="spec-value">ゴールド（即付与）</div></div>
+        <div class="spec-item"><div class="spec-label">無料宿泊条件</div><div class="spec-value">年400万円利用で2泊</div></div>
+        <div class="spec-item"><div class="spec-label">マイル交換</div><div class="spec-value">40社以上対応</div></div>
+      </div>
+      <ul class="pros-list">
+        <li>ポイントをANA・JAL・シンガポール航空など40社マイルへ交換可能（汎用性最高）</li>
+        <li>年400万円達成で無料宿泊最大2泊（リッツカールトンでも使える）</li>
+        <li>対象ホテルはマリオット・リッツ・Wなど超高級ブランド含む9,000施設以上</li>
+      </ul>
+      <div class="caution-box">
+        <span>⚠️</span>
+        <div>年400万円（月33万円）という達成条件は現実的に厳しい。年会費82,500円の元を取るには計画的な利用が必須。「高級ホテルを年2泊以上使う」確信がある人向き。</div>
+      </div>
+      <div class="who-box">
+        <span class="who-icon">👤</span>
+        <div><strong>こんな人に最適：</strong>年収の高いビジネスマン・マリオット系に年複数回泊まる人・マイルとホテルポイントを両取りしたい上級者。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3位 ヒルトンプレミアム -->
+  <div class="card-entry rank-3">
+    <div class="card-header">
+      <div class="rank-badge rank-3"><span class="rank-num-text">🥉</span></div>
+      <div class="card-name-block">
+        <h2>ヒルトン・オナーズ アメックス プレミアム</h2>
+        <div class="card-fee">年会費 <strong>66,000円</strong>（税込）</div>
+      </div>
+      <div style="font-size:1.8rem;">⭐</div>
+    </div>
+    <div class="best-feature" style="margin:16px 32px 0;">
+      <span class="bf-label">最大の売り</span>
+      年200万円でヒルトン最上位「ダイヤモンド」への最短ルート
+    </div>
+    <div class="card-body">
+      <p>
+        ヒルトン・ダイヤモンドステータスは、通常60泊または30滞在が必要な超難関ステータス。このカードは<strong>年200万円の決済（月約16.7万円）</strong>でダイヤモンドが確定する、カード経由では最速の入手ルートです。ダイヤモンドになると朝食無料+部屋のアップグレード+ラウンジアクセスと特典が一気に増えます。
+      </p>
+      <p>
+        ただし年会費66,000円と高額で、ヒルトン以外では使いづらい専用カード。「ヒルトンが大好き、ダイヤモンドを狙いたい」という強い意志がある人以外には不要。
+      </p>
+      <div class="specs-grid">
+        <div class="spec-item"><div class="spec-label">年会費</div><div class="spec-value">66,000円</div></div>
+        <div class="spec-item"><div class="spec-label">ステータス</div><div class="spec-value">ダイヤモンド（年200万円）</div></div>
+        <div class="spec-item"><div class="spec-label">対象ホテル</div><div class="spec-value">ヒルトン系7,000施設</div></div>
+      </div>
+      <div class="who-box">
+        <span class="who-icon">👤</span>
+        <div><strong>こんな人に最適：</strong>ヒルトン・コンラッド・ウォルドーフが大好きで年複数回利用する「ヒルトン狂人」専用カード。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ornament"><div class="ornament-line"></div><div class="ornament-diamond"></div><div class="ornament-line"></div></div>
+
+<!-- ═══════════════════════════════════ -->
+<!-- MILE SECTION -->
+<!-- ═══════════════════════════════════ -->
+<section id="mile" class="section-mile">
+  <div class="section-eyebrow">
+    <div class="cat-icon">✈️</div>
+    <div><div class="cat-label">Category 02</div></div>
+  </div>
+  <h2 class="section-title">マイル特化部門</h2>
+  <p class="section-desc">飛行機に乗る回数が多い人はマイルを効率よく貯めるカードが最強。搭乗ボーナスと還元率の両方を見よう。</p>
+
+  <!-- JAL -->
+  <div class="card-entry rank-1">
+    <div class="card-header">
+      <div class="rank-badge rank-1"><span class="rank-num-text">🥇</span></div>
+      <div class="card-name-block">
+        <h2>JALカード CLUB-Aゴールド</h2>
+        <div class="card-fee">年会費 <strong>17,600円〜</strong>（国際ブランドにより異なる）</div>
+      </div>
+      <div style="font-size:1.8rem;">⭐⭐⭐</div>
+    </div>
+    <div class="best-feature" style="margin:16px 32px 0;">
+      <span class="bf-label">最大の売り</span>
+      100円＝1マイル還元（プレミアム自動付帯）× 搭乗ボーナス+25%でJALマイラー最強確定
+    </div>
+    <div class="card-body">
+      <p>
+        JALマイラーにとってこれ以外の選択肢はないと断言できる一枚。通常のJALカードは「ショッピングマイルプレミアム（年3,300円）」を別途申し込むと100円1マイルになりますが、CLUB-Aゴールドは<strong>このプレミアムが年会費に自動で含まれています</strong>。つまり別途費用なしで常に100円1マイルが確定。
+      </p>
+      <p>
+        加えてJAL便搭乗のたびに<strong>フライトマイルが+25%ボーナス</strong>で加算。例えばJALで東京〜沖縄往復（通常約1,000マイル）なら250マイル追加で1,250マイルに。頻繁に飛ぶほど差が広がります。
+      </p>
+      <div class="specs-grid">
+        <div class="spec-item"><div class="spec-label">年会費</div><div class="spec-value">17,600円〜</div></div>
+        <div class="spec-item"><div class="spec-label">還元率</div><div class="spec-value">100円 = 1マイル</div></div>
+        <div class="spec-item"><div class="spec-label">搭乗ボーナス</div><div class="spec-value">+25%</div></div>
+        <div class="spec-item"><div class="spec-label">プレミアム</div><div class="spec-value">自動付帯（追加費用なし）</div></div>
+      </div>
+      <ul class="pros-list">
+        <li>ショッピングマイルプレミアムが年会費に含まれ→100円1マイルが当たり前に</li>
+        <li>JAL搭乗ごとに+25%ボーナスマイル→飛ぶほど得する仕組み</li>
+        <li>空港ラウンジ利用可・海外旅行保険自動付帯で旅行中も安心</li>
+        <li>JAL特約店（JAL系列・提携店）では100円2マイル</li>
+      </ul>
+      <div class="who-box">
+        <span class="who-icon">👤</span>
+        <div><strong>こんな人に最適：</strong>JALをよく使う出張族・旅行好き。年に3〜4回以上JALに乗るなら搭乗ボーナスだけで年会費分のマイルを取り戻せる。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ANA -->
+  <div class="card-entry rank-2">
+    <div class="card-header">
+      <div class="rank-badge rank-2"><span class="rank-num-text">🥈</span></div>
+      <div class="card-name-block">
+        <h2>ANA VISAワイドゴールドカード</h2>
+        <div class="card-fee">年会費 <strong>15,400円</strong>（税込）</div>
+      </div>
+      <div style="font-size:1.8rem;">⭐⭐</div>
+    </div>
+    <div class="best-feature" style="margin:16px 32px 0;">
+      <span class="bf-label">最大の売り</span>
+      ANA搭乗ボーナス+25%＋マイル特化設計。ANAマイラーのド定番
+    </div>
+    <div class="card-body">
+      <p>
+        ANAユーザーのスタンダードな選択肢。ANA便に搭乗するたびに<strong>+25%のボーナスマイル</strong>が加算され、カード利用でも着実にANAマイルが貯まります。JCB版・VISA版があり、VISAは実用性で選ばれることが多い。
+      </p>
+      <p>
+        ただしJAL版と比べると、ショッピング時の還元率でやや劣る部分もあるため、本当にANAに頻繁に乗る人向け。年会費は15,400円とJALより若干低く、ANA派の入門として最適。
+      </p>
+      <div class="specs-grid">
+        <div class="spec-item"><div class="spec-label">年会費</div><div class="spec-value">15,400円</div></div>
+        <div class="spec-item"><div class="spec-label">搭乗ボーナス</div><div class="spec-value">+25%</div></div>
+        <div class="spec-item"><div class="spec-label">メイン対象</div><div class="spec-value">ANAマイラー</div></div>
+      </div>
+      <div class="who-box">
+        <span class="who-icon">👤</span>
+        <div><strong>こんな人に最適：</strong>ANAをよく使う出張族・旅行好き。JALよりANAに乗る機会が多い人はこちらを選ぼう。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- セゾンプラチナ -->
+  <div class="card-entry rank-3">
+    <div class="card-header">
+      <div class="rank-badge rank-3"><span class="rank-num-text">🥉</span></div>
+      <div class="card-name-block">
+        <h2>セゾンプラチナ・ビジネス アメックス</h2>
+        <div class="card-fee">年会費 <strong>33,000円</strong>（税込）</div>
+      </div>
+      <div style="font-size:1.8rem;">⭐⭐</div>
+    </div>
+    <div class="best-feature" style="margin:16px 32px 0;">
+      <span class="bf-label">最大の売り</span>
+      JALマイル還元率1.125%＋プライオリティパス付帯でマイル＆ラウンジを両取り
+    </div>
+    <div class="card-body">
+      <p>
+        マイル系ではやや異色の存在で、<strong>JALマイル還元率1.125%</strong>を達成しつつ、プライオリティパス（年会費は単体で約50,000円相当）が付帯する点が独自の強み。「マイルを貯めながら出張先の空港ラウンジも使いたい」という需要に1枚で応える。
+      </p>
+      <p>
+        ビジネスカードのため経費計上もしやすく、事業者や個人事業主にも人気。JALカードほどの還元率ではないが、ラウンジ＋マイルの組み合わせで実質価値は高い。
+      </p>
+      <div class="specs-grid">
+        <div class="spec-item"><div class="spec-label">年会費</div><div class="spec-value">33,000円</div></div>
+        <div class="spec-item"><div class="spec-label">JALマイル還元</div><div class="spec-value">1.125%</div></div>
+        <div class="spec-item"><div class="spec-label">ラウンジ</div><div class="spec-value">プライオリティパス付帯</div></div>
+      </div>
+      <div class="who-box">
+        <span class="who-icon">👤</span>
+        <div><strong>こんな人に最適：</strong>出張が多いビジネスマン・個人事業主でマイルとラウンジ両方欲しい人。プライオリティパス単体の価値を考えると年会費は割安。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ornament"><div class="ornament-line"></div><div class="ornament-diamond"></div><div class="ornament-line"></div></div>
+
+<!-- ═══════════════════════════════════ -->
+<!-- COST SECTION -->
+<!-- ═══════════════════════════════════ -->
+<section id="cost" class="section-cost">
+  <div class="section-eyebrow">
+    <div class="cat-icon">💰</div>
+    <div><div class="cat-label">Category 03</div></div>
+  </div>
+  <h2 class="section-title">お得度・コスパ部門</h2>
+  <p class="section-desc">年会費を最小化しながら最大のリターンを狙う、コスパ重視派のための部門。実質無料カードが2枚ランクイン。</p>
+
+  <!-- 三井住友ゴールドNL -->
+  <div class="card-entry rank-1">
+    <div class="card-header">
+      <div class="rank-badge rank-1"><span class="rank-num-text">🥇</span></div>
+      <div class="card-name-block">
+        <h2>三井住友ゴールドカード（NL）</h2>
+        <div class="card-fee">年会費 <strong>5,500円 → 年100万円で永年無料</strong></div>
+      </div>
+      <div style="font-size:1.8rem;">⭐⭐⭐</div>
+    </div>
+    <div class="best-feature" style="margin:16px 32px 0;">
+      <span class="bf-label">最大の売り</span>
+      一度100万円達成すれば永年無料！コンビニ・マクドナルドで最大7%還元が日常の武器
+    </div>
+    <div class="card-body">
+      <p>
+        コスパ部門の絶対王者にして、2026年現在もポイ活民から最も支持されるゴールドカード。年間100万円（月約8.3万円）の決済を達成すると、以降<strong>ずっと年会費が無料</strong>になる仕組みが革命的。ゴールドカードを実質0円で持てる時代が来た。
+      </p>
+      <p>
+        さらに対象のコンビニ（セブン・ローソン・ファミマ）・マクドナルドでのタッチ決済で<strong>最大7%還元</strong>。日々の食費・日用品購入が一気にお得になります。空港ラウンジも無料で使え、ゴールドの威厳も保てる。
+      </p>
+      <div class="specs-grid">
+        <div class="spec-item"><div class="spec-label">年会費</div><div class="spec-value">実質永年無料（条件あり）</div></div>
+        <div class="spec-item"><div class="spec-label">コンビニ還元</div><div class="spec-value">最大7%</div></div>
+        <div class="spec-item"><div class="spec-label">空港ラウンジ</div><div class="spec-value">無制限</div></div>
+        <div class="spec-item"><div class="spec-label">無料化条件</div><div class="spec-value">年100万円利用（1回のみ）</div></div>
+      </div>
+      <ul class="pros-list">
+        <li>年100万円達成→以降ずっと無料。コスパカードの王道</li>
+        <li>コンビニ・マクドナルドのタッチ決済で最大7%（日本最高水準）</li>
+        <li>空港ラウンジ無制限利用（同伴者1名は有料）</li>
+        <li>100万円達成時に10,000ポイントのボーナスも付与</li>
+      </ul>
+      <div class="caution-box">
+        <span>⚠️</span>
+        <div>7%還元はタッチ決済限定。通常のカード差し込みでは還元率が大幅に下がるため、コンタクトレス決済の習慣が大前提。</div>
+      </div>
+      <div class="who-box">
+        <span class="who-icon">👤</span>
+        <div><strong>こんな人に最適：</strong>コンビニ・マクドナルドを日常使いする人全員。サラリーマン・主婦・学生問わず、月8〜9万円の決済ができれば誰でも得。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- エポスゴールド -->
+  <div class="card-entry rank-2">
+    <div class="card-header">
+      <div class="rank-badge rank-2"><span class="rank-num-text">🥈</span></div>
+      <div class="card-name-block">
+        <h2>エポスゴールドカード</h2>
+        <div class="card-fee">年会費 <strong>5,000円 → 年50万円で永年無料</strong></div>
+      </div>
+      <div style="font-size:1.8rem;">⭐⭐⭐</div>
+    </div>
+    <div class="best-feature" style="margin:16px 32px 0;">
+      <span class="bf-label">最大の売り</span>
+      年50万円という低いハードルで永年無料！主婦・一人暮らしでも現実的に達成できる
+    </div>
+    <div class="card-body">
+      <p>
+        三井住友ゴールドNLが「月8.3万円」が条件なのに対し、エポスゴールドは<strong>年50万円（月約4.2万円）</strong>で永年無料。家賃・光熱費・食費などの固定費をまとめるだけで十分達成できるレベル。一人暮らしや主婦層でも無理なく狙えるハードルの低さが最大の魅力です。
+      </p>
+      <p>
+        さらに自分でよく使う3店舗を選んでポイント2倍に設定できる「選べるポイントアップショップ」機能が強力。電気代・ガス代・通信費などの固定費を指定して効率よくポイントを貯められます。
+      </p>
+      <div class="specs-grid">
+        <div class="spec-item"><div class="spec-label">年会費</div><div class="spec-value">実質永年無料（年50万円）</div></div>
+        <div class="spec-item"><div class="spec-label">特典</div><div class="spec-value">選べる3店舗で2倍</div></div>
+        <div class="spec-item"><div class="spec-label">無料化ハードル</div><div class="spec-value">月約4.2万円（低い！）</div></div>
+      </div>
+      <ul class="pros-list">
+        <li>年50万円で永年無料→一人暮らしでも固定費まとめで達成可能</li>
+        <li>選べる3店舗でポイント2倍→電気・ガス・スーパーなど自分に合わせて選択</li>
+        <li>海外旅行保険が<strong>自動付帯</strong>（カードを持つだけで補償される！）</li>
+        <li>マルイで優待も多く、ファッション好きにも◎</li>
+      </ul>
+      <div class="who-box">
+        <span class="who-icon">👤</span>
+        <div><strong>こんな人に最適：</strong>一人暮らし・主婦・初めてのゴールドカードを探している人。ハードルが低く、海外保険が自動付帯なので旅行前の手続きも不要。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- セゾンゴールドプレミアム -->
+  <div class="card-entry rank-3">
+    <div class="card-header">
+      <div class="rank-badge rank-3"><span class="rank-num-text">🥉</span></div>
+      <div class="card-name-block">
+        <h2>セゾンゴールド・プレミアム</h2>
+        <div class="card-fee">年会費 <strong>11,000円 → 年100万円で永年無料</strong></div>
+      </div>
+      <div style="font-size:1.8rem;">⭐⭐</div>
+    </div>
+    <div class="best-feature" style="margin:16px 32px 0;">
+      <span class="bf-label">最大の売り</span>
+      対象店舗で最大5%還元！セゾンポイントがザクザク貯まる高還元カード
+    </div>
+    <div class="card-body">
+      <p>
+        コンビニや対象飲食店で<strong>最大5%還元</strong>を誇るセゾン系の注目株。年100万円達成で永年無料になる点は三井住友ゴールドNLと同条件ですが、特定店舗での還元率に独自の強みがあります。セゾンポイント（永久不滅ポイント）は有効期限がないため、ゆっくり貯めて大きく使える点も魅力。
+      </p>
+      <div class="specs-grid">
+        <div class="spec-item"><div class="spec-label">年会費</div><div class="spec-value">実質永年無料（年100万円）</div></div>
+        <div class="spec-item"><div class="spec-label">最大還元率</div><div class="spec-value">対象店舗で5%</div></div>
+        <div class="spec-item"><div class="spec-label">ポイント</div><div class="spec-value">永久不滅（期限なし）</div></div>
+      </div>
+      <div class="who-box">
+        <span class="who-icon">👤</span>
+        <div><strong>こんな人に最適：</strong>セゾン系の提携店舗をよく利用する人・ポイントをじっくり貯めたい人。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ornament"><div class="ornament-line"></div><div class="ornament-diamond"></div><div class="ornament-line"></div></div>
+
+<!-- ═══════════════════════════════════ -->
+<!-- INSURANCE SECTION -->
+<!-- ═══════════════════════════════════ -->
+<section id="insurance" class="section-ins">
+  <div class="section-eyebrow">
+    <div class="cat-icon">🛡️</div>
+    <div><div class="cat-label">Category 04</div></div>
+  </div>
+  <h2 class="section-title">付帯保険部門</h2>
+  <p class="section-desc">旅行トラブルや医療費に備える保険の手厚さで選ぶ部門。「自動付帯」か「利用付帯」かで価値が大きく変わる。</p>
+
+  <!-- JCBゴールド -->
+  <div class="card-entry rank-1">
+    <div class="card-header">
+      <div class="rank-badge rank-1"><span class="rank-num-text">🥇</span></div>
+      <div class="card-name-block">
+        <h2>JCBゴールドカード</h2>
+        <div class="card-fee">年会費 <strong>11,000円</strong>（税込）</div>
+      </div>
+      <div style="font-size:1.8rem;">⭐⭐⭐</div>
+    </div>
+    <div class="best-feature" style="margin:16px 32px 0;">
+      <span class="bf-label">最大の売り</span>
+      海外旅行保険最高1億円＋国内外ともに手厚い補償。さらに上位カードへの昇格ルートあり
+    </div>
+    <div class="card-body">
+      <p>
+        保険部門の王者。海外旅行保険の補償額が<strong>最高1億円</strong>（利用付帯）と業界最高水準。国内旅行保険も5,000万円、ショッピング保険も充実と「旅行中のトラブルは全部JCBに任せた」と言える安心感があります。
+      </p>
+      <p>
+        さらに注目すべきは<strong>JCBゴールド・ザ・プレミア昇格ルート</strong>。2年連続で年100万円以上利用すると、JCBが誇る招待制プレミアムカードへの招待が届く可能性があります。ゴールドを入口として、将来の上位ステータスを見据えた使い方ができる唯一のカード。
+      </p>
+      <div class="specs-grid">
+        <div class="spec-item"><div class="spec-label">年会費</div><div class="spec-value">11,000円</div></div>
+        <div class="spec-item"><div class="spec-label">海外旅行保険</div><div class="spec-value">最高1億円（利用付帯）</div></div>
+        <div class="spec-item"><div class="spec-label">国内旅行保険</div><div class="spec-value">最高5,000万円</div></div>
+        <div class="spec-item"><div class="spec-label">昇格ルート</div><div class="spec-value">ザ・プレミアへの道</div></div>
+      </div>
+      <ul class="pros-list">
+        <li>海外旅行保険1億円・国内5,000万円と業界最高水準の補償内容</li>
+        <li>2年連続100万円達成でJCBゴールド・ザ・プレミア招待の可能性</li>
+        <li>国内外問わず手厚い補償で旅行中の医療費も安心</li>
+        <li>JCBブランドの信頼性・サポート品質の高さ</li>
+      </ul>
+      <div class="who-box">
+        <span class="who-icon">👤</span>
+        <div><strong>こんな人に最適：</strong>海外旅行が多く保険を重視する人・将来的に上位カードへ昇格したい人・JCBのサービス品質を信頼する人。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- アメックスゴールドプリファード -->
+  <div class="card-entry rank-2">
+    <div class="card-header">
+      <div class="rank-badge rank-2"><span class="rank-num-text">🥈</span></div>
+      <div class="card-name-block">
+        <h2>アメリカン・エクスプレス・ゴールド・プリファード</h2>
+        <div class="card-fee">年会費 <strong>31,900円</strong>（税込）</div>
+      </div>
+      <div style="font-size:1.8rem;">⭐⭐</div>
+    </div>
+    <div class="best-feature" style="margin:16px 32px 0;">
+      <span class="bf-label">最大の売り</span>
+      保険1億円＋手荷物無料宅配＋キャンセルプロテクション。旅行周辺の特典が圧倒的に豊富
+    </div>
+    <div class="card-body">
+      <p>
+        海外旅行保険1億円（利用付帯）はJCBと並ぶ最高水準。さらに<strong>手荷物無料宅配</strong>（空港と自宅間）・旅行キャンセル費用補償・航空便遅延費用補償など、保険だけでなく旅行前後のサポートが充実している点がアメックスらしい。「旅行に関わるトラブルをまとめて解決したい」ニーズに応える。
+      </p>
+      <p>
+        年会費31,900円と高めだが、手荷物宅配だけで年数回の旅行なら1〜2万円の節約になり、実質的なコスパは悪くない。
+      </p>
+      <div class="specs-grid">
+        <div class="spec-item"><div class="spec-label">年会費</div><div class="spec-value">31,900円</div></div>
+        <div class="spec-item"><div class="spec-label">海外旅行保険</div><div class="spec-value">最高1億円（利用付帯）</div></div>
+        <div class="spec-item"><div class="spec-label">手荷物宅配</div><div class="spec-value">無料（往復）</div></div>
+        <div class="spec-item"><div class="spec-label">キャンセル保険</div><div class="spec-value">付帯</div></div>
+      </div>
+      <div class="who-box">
+        <span class="who-icon">👤</span>
+        <div><strong>こんな人に最適：</strong>年2回以上海外旅行に行く人・荷物が多くて宅配を使う人・旅行キャンセルリスクを保険でカバーしたい人。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- エポスゴールド保険 -->
+  <div class="card-entry rank-3">
+    <div class="card-header">
+      <div class="rank-badge rank-3"><span class="rank-num-text">🥉</span></div>
+      <div class="card-name-block">
+        <h2>エポスゴールドカード（保険観点）</h2>
+        <div class="card-fee">年会費 <strong>実質永年無料</strong></div>
+      </div>
+      <div style="font-size:1.8rem;">⭐⭐⭐</div>
+    </div>
+    <div class="best-feature" style="margin:16px 32px 0;">
+      <span class="bf-label">最大の売り</span>
+      海外旅行保険5,000万円が「自動付帯」！カードを持つだけで補償が始まる唯一の選択肢
+    </div>
+    <div class="card-body">
+      <p>
+        上位2枚は「利用付帯」、つまり旅行代金をそのカードで決済した場合のみ保険が有効になります。一方エポスゴールドは<strong>海外旅行保険5,000万円が自動付帯</strong>—カードを財布に入れているだけで旅行中の医療費・事故が補償される。これは実は非常に稀かつ便利な特性です。
+      </p>
+      <p>
+        「旅行費用をカードで払い忘れた」「格安航空を現金で予約した」という場面でも補償が効く。実質無料のカードでこの特典は破格の価値。
+      </p>
+      <div class="specs-grid">
+        <div class="spec-item"><div class="spec-label">年会費</div><div class="spec-value">実質永年無料</div></div>
+        <div class="spec-item"><div class="spec-label">海外旅行保険</div><div class="spec-value">5,000万円</div></div>
+        <div class="spec-item"><div class="spec-label">付帯方式</div><div class="spec-value">⭐ 自動付帯（最重要）</div></div>
+      </div>
+      <div class="who-box">
+        <span class="who-icon">👤</span>
+        <div><strong>こんな人に最適：</strong>格安旅行が多い人・旅行代金の決済を忘れがちな人・サブカードとして海外旅行保険だけ確保したい人。無料で自動付帯は価値が高い。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 保険の解説ボックス -->
+  <div class="ins-note">
+    <h3>⚠️ 保険の大事なポイント：「利用付帯」vs「自動付帯」</h3>
+    <p style="color:var(--platinum); font-size:0.88rem; margin-bottom:16px;">この違いを知らないと、いざという時に保険が使えない！</p>
+    <div class="ins-row">
+      <div class="ins-type usage">
+        <div class="it-label">利用付帯（条件あり）</div>
+        <p>旅行代金（航空券・ホテル代など）を<strong>そのカードで決済した場合のみ</strong>保険が有効になります。JCBゴールド・アメックスなど多くの高額カードがこれ。旅行前に「このカードで決済した？」を確認する習慣が必要。</p>
+      </div>
+      <div class="ins-type auto">
+        <div class="it-label">自動付帯（カード所持だけでOK）</div>
+        <p>カードを持っているだけで補償が始まります。決済方法に関係なく旅行中は常に保険が有効。エポスゴールドなど一部のカードのみ。格安旅行や現金払いが多い人には特に重要な条件。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ornament"><div class="ornament-line"></div><div class="ornament-diamond"></div><div class="ornament-line"></div></div>
+
+<!-- ═══════════════════════════════════ -->
+<!-- DAILY SECTION -->
+<!-- ═══════════════════════════════════ -->
+<section id="daily" class="section-daily">
+  <div class="section-eyebrow">
+    <div class="cat-icon">🛒</div>
+    <div><div class="cat-label">Category 05</div></div>
+  </div>
+  <h2 class="section-title">日常使い部門</h2>
+  <p class="section-desc">毎日の買い物・固定費・コンビニで最もポイントが貯まるカードを評価。使う頻度が高いほど差が開く。</p>
+
+  <div class="card-entry rank-1">
+    <div class="card-header">
+      <div class="rank-badge rank-1"><span class="rank-num-text">🥇</span></div>
+      <div class="card-name-block">
+        <h2>三井住友ゴールドカード（NL）</h2>
+        <div class="card-fee">実質永年無料（年100万円達成後）</div>
+      </div>
+      <div style="font-size:1.8rem;">⭐⭐⭐</div>
+    </div>
+    <div class="best-feature" style="margin:16px 32px 0;">
+      <span class="bf-label">最大の売り</span>
+      コンビニ・マクドナルドのタッチ決済で最大7%。日々の出費がすべてポイントになる
+    </div>
+    <div class="card-body">
+      <p>セブン・ローソン・ファミマ・マクドナルドなど日本人の生活に密着した店舗で最大7%という破格の還元率。月3万円をコンビニ・マクドナルドで使うだけで毎月最大2,100ポイント＝年間25,200円相当のポイントが貯まる計算。日常使いカードの圧倒的王者。</p>
+      <div class="who-box">
+        <span class="who-icon">👤</span>
+        <div><strong>こんな人に最適：</strong>コンビニ・マクドナルドをよく使うすべての人。タッチ決済の習慣さえ身につければ誰でも最大恩恵を受けられる。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-entry rank-2">
+    <div class="card-header">
+      <div class="rank-badge rank-2"><span class="rank-num-text">🥈</span></div>
+      <div class="card-name-block">
+        <h2>エポスゴールドカード</h2>
+        <div class="card-fee">実質永年無料（年50万円達成後）</div>
+      </div>
+      <div style="font-size:1.8rem;">⭐⭐</div>
+    </div>
+    <div class="best-feature" style="margin:16px 32px 0;">
+      <span class="bf-label">最大の売り</span>
+      固定費3カテゴリを選んでポイント2倍に！電気・ガス・スーパーを登録するだけで毎月得
+    </div>
+    <div class="card-body">
+      <p>「選べるポイントアップショップ」機能で自分がよく使う3店舗をポイント2倍に設定できる。電気代・ガス代・通信費など毎月必ず支払う固定費を指定すれば、何もしなくても毎月ポイントが積み上がる仕組み。</p>
+      <div class="who-box">
+        <span class="who-icon">👤</span>
+        <div><strong>こんな人に最適：</strong>固定費の支払いをひとまとめにしたい人・一人暮らしや主婦で毎月の出費を効率よくポイント化したい人。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-entry rank-3">
+    <div class="card-header">
+      <div class="rank-badge rank-3"><span class="rank-num-text">🥉</span></div>
+      <div class="card-name-block">
+        <h2>楽天ゴールドカード</h2>
+        <div class="card-fee">年会費 <strong>2,200円</strong>（税込）</div>
+      </div>
+      <div style="font-size:1.8rem;">⭐</div>
+    </div>
+    <div class="best-feature" style="margin:16px 32px 0;">
+      <span class="bf-label">最大の売り</span>
+      楽天経済圏ユーザーなら楽天市場でSPU適用でポイント還元が上乗せされる
+    </div>
+    <div class="card-body">
+      <p>
+        ポジティブに言えば「楽天市場をよく使う人専用の特化カード」。楽天SPU（スーパーポイントアッププログラム）の対象となり、楽天市場での購入時にポイント還元率が上がります。しかし楽天市場を使わないユーザーには<strong>ほぼ存在意義がない</strong>というのが辛口の評価。
+      </p>
+      <p>
+        年会費2,200円と低額ながら、楽天経済圏以外での還元率は低く、空港ラウンジも2回/年と制限あり。楽天以外でも充実した特典を求めるなら素直に三井住友やエポスを選ぶべき。
+      </p>
+      <div class="caution-box">
+        <span>😇</span>
+        <div>楽天経済圏（楽天市場・楽天モバイル・楽天銀行等を愛用）の人以外には、このカードを選ぶ理由はほとんどありません。正直に言います。</div>
+      </div>
+      <div class="who-box">
+        <span class="who-icon">👤</span>
+        <div><strong>こんな人に最適：</strong>楽天市場で毎月1万円以上購入する人のみ。それ以外は別のカードを検討しよう。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ornament"><div class="ornament-line"></div><div class="ornament-diamond"></div><div class="ornament-line"></div></div>
+
+<!-- ═══════════════════════════════════ -->
+<!-- TOTAL RANKING -->
+<!-- ═══════════════════════════════════ -->
+<section id="total" class="section-total">
+  <div class="section-eyebrow">
+    <div class="cat-icon">🎯</div>
+    <div><div class="cat-label">Final Verdict</div></div>
+  </div>
+  <h2 class="section-title">総合ランキング<br><em style="font-family:'DM Serif Display',serif; font-style:italic; color:var(--gold-dark); font-size:0.85em;">辛口版</em></h2>
+  <p class="section-desc">すべての部門を横断した総合評価。年会費・汎用性・コスパ・特典の厚みを総合的に判定。</p>
+
+  <div style="overflow-x:auto; border-radius:16px; border:1px solid var(--cream-dark); box-shadow:0 4px 24px var(--shadow);">
+    <table class="total-table">
+      <thead>
+        <tr>
+          <th>順位</th>
+          <th>カード名</th>
+          <th>年会費</th>
+          <th>主な強み</th>
+          <th>総合評価</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="rank-top-3">
+          <td class="rank-cell">🥇 1位</td>
+          <td><strong>三井住友ゴールドNL</strong></td>
+          <td>実質無料</td>
+          <td>コンビニ7%・ラウンジ・永年無料</td>
+          <td><span class="eval-badge ev-s">S：コスパ最強</span></td>
+        </tr>
+        <tr class="rank-top-3">
+          <td class="rank-cell">🥈 2位</td>
+          <td><strong>エポスゴールド</strong></td>
+          <td>実質無料</td>
+          <td>ハードル低・自動付帯保険・固定費2倍</td>
+          <td><span class="eval-badge ev-s">S：ハードル最低</span></td>
+        </tr>
+        <tr class="rank-top-3">
+          <td class="rank-cell">🥉 3位</td>
+          <td><strong>JCBゴールド</strong></td>
+          <td>11,000円</td>
+          <td>保険1億円・上位カード昇格ルート</td>
+          <td><span class="eval-badge ev-a">A：保険＆ステータス</span></td>
+        </tr>
+        <tr>
+          <td class="rank-cell" style="color:var(--warm-gray);">4位</td>
+          <td><strong>ヒルトンアメックス（一般）</strong></td>
+          <td>16,500円</td>
+          <td>ゴールドステータス即付与・朝食無料</td>
+          <td><span class="eval-badge ev-a">A：ホテル好き専用</span></td>
+        </tr>
+        <tr>
+          <td class="rank-cell" style="color:var(--warm-gray);">5位</td>
+          <td><strong>JALカードCLUB-Aゴールド</strong></td>
+          <td>17,600円〜</td>
+          <td>100円1マイル・搭乗ボーナス+25%</td>
+          <td><span class="eval-badge ev-a">A：JALマイラー専用</span></td>
+        </tr>
+        <tr>
+          <td class="rank-cell" style="color:var(--warm-gray);">6位</td>
+          <td><strong>セゾンプラチナアメックス</strong></td>
+          <td>33,000円</td>
+          <td>マイル1.125%＋プライオリティパス</td>
+          <td><span class="eval-badge ev-b">B：出張族向け</span></td>
+        </tr>
+        <tr>
+          <td class="rank-cell" style="color:var(--warm-gray);">7位</td>
+          <td><strong>ヒルトンアメックスプレミアム</strong></td>
+          <td>66,000円</td>
+          <td>ダイヤモンド最短ルート</td>
+          <td><span class="eval-badge ev-b">B：ヒルトン狂人専用</span></td>
+        </tr>
+        <tr>
+          <td class="rank-cell" style="color:var(--warm-gray);">8位</td>
+          <td><strong>マリオットボンヴォイプレミアム</strong></td>
+          <td>82,500円</td>
+          <td>40社マイル交換・無料2泊</td>
+          <td><span class="eval-badge ev-b">B：超限られた層のみ</span></td>
+        </tr>
+        <tr>
+          <td class="rank-cell" style="color:#aaa;">最下位</td>
+          <td><strong>楽天ゴールド</strong></td>
+          <td>2,200円</td>
+          <td>楽天SPU対象（のみ）</td>
+          <td><span class="eval-badge ev-c">C：存在意義を問う</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- まとめコメント -->
+  <div style="background:var(--ink); border-radius:20px; padding:36px 32px; margin-top:40px;">
+    <h3 style="font-family:'DM Serif Display',serif; color:var(--gold-light); font-size:1.3rem; margin-bottom:20px;">📝 編集部・辛口まとめ</h3>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+      <div style="background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.25); border-radius:12px; padding:18px;">
+        <div style="color:var(--gold); font-weight:700; font-size:0.85rem; margin-bottom:10px;">🎯 初めての一枚を選ぶなら</div>
+        <p style="font-size:0.84rem; color:var(--platinum); line-height:1.7;">迷ったら<strong style="color:#fff;">三井住友ゴールドNL</strong>一択。コンビニ7%・永年無料・ラウンジの三拍子。100万円修行さえ乗り越えれば一生無料で使える。</p>
+      </div>
+      <div style="background:rgba(74,222,128,0.08); border:1px solid rgba(74,222,128,0.2); border-radius:12px; padding:18px;">
+        <div style="color:#4ADE80; font-weight:700; font-size:0.85rem; margin-bottom:10px;">🏨 旅行特化で選ぶなら</div>
+        <p style="font-size:0.84rem; color:var(--platinum); line-height:1.7;">ヒルトン系を年1〜2回使うなら<strong style="color:#fff;">ヒルトンアメックス一般</strong>。朝食無料だけで年会費を回収できる、旅行系カード界のコスパ王。</p>
+      </div>
+      <div style="background:rgba(96,165,250,0.08); border:1px solid rgba(96,165,250,0.2); border-radius:12px; padding:18px;">
+        <div style="color:#60A5FA; font-weight:700; font-size:0.85rem; margin-bottom:10px;">✈️ マイルを貯めるなら</div>
+        <p style="font-size:0.84rem; color:var(--platinum); line-height:1.7;">JALユーザーは<strong style="color:#fff;">JALカードCLUB-Aゴールド</strong>、ANAユーザーは<strong style="color:#fff;">ANA VISAワイドゴールド</strong>。搭乗ボーナスが命。</p>
+      </div>
+      <div style="background:rgba(248,113,113,0.08); border:1px solid rgba(248,113,113,0.2); border-radius:12px; padding:18px;">
+        <div style="color:#F87171; font-weight:700; font-size:0.85rem; margin-bottom:10px;">⚠️ 選んではいけないケース</div>
+        <p style="font-size:0.84rem; color:var(--platinum); line-height:1.7;">楽天市場を使わないのに楽天ゴールドを選ぶのは完全にNG。特典のほぼすべてが楽天経済圏前提で設計されています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /container -->
+
+<footer>
+  <div class="footer-logo">🏆 Gold Card Guide 2026</div>
+  <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(201,168,76,0.12); border:1px solid rgba(201,168,76,0.3); border-radius:100px; padding:7px 20px; margin-bottom:20px;">
+    <span style="font-size:1rem;">✍️</span>
+    <span style="font-weight:900; font-size:0.9rem; color:var(--gold-light); letter-spacing:0.03em;">やっぴ〜＠MNP×クレカ錬金術師</span>
+  </div>
+  <p>
+    このガイドは情報提供を目的としています。年会費・還元率・特典内容は変更される場合があります。<br>
+    最新情報は各カード公式サイトにてご確認ください。カードの申し込みは計画的に。<br><br>
+    © 2026 やっぴ〜＠MNP×クレカ錬金術師
+  </p>
+</footer>
+
+</body>
+</html>
